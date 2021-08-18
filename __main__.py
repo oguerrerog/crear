@@ -22,11 +22,14 @@ text_index = '''
 '''
 
 
-def add_after(filename, old_line, new_line):
+def add_after(filename, old_line, new_line, esReemplazo=False):
     with fileinput.FileInput(filename, inplace=True, backup = '.bak') as f:
         for line in f:
             if old_line in line:
-                print(line +  new_line, end='\n')
+                if esReemplazo:
+                    print(new_line)
+                else:
+                    print(line +  new_line, end='\n')
             else:
                 print(line, end='')
 
@@ -35,6 +38,8 @@ def create_app(project, app):
     os.chdir(project)
     os.system(f'python manage.py startapp {app}')
     add_after(f'{project}/settings.py', 'INSTALLED_APPS', f"    '{app}',")
+    add_after(f'{project}/settings.py', f"LANGUAGE_CODE = 'en-us'", f"LANGUAGE_CODE = 'es'", True)
+    add_after(f'{project}/settings.py', f"TIME_ZONE = 'UTC'", f"TIME_ZONE = 'America/Santiago'", True)
     add_after(f'{project}/urls.py', 'from django.urls', 'from django.urls import include')
     add_after(
         f'{project}/urls.py',
