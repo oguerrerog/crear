@@ -1,7 +1,7 @@
 from django.contrib import messages
 from django.shortcuts import redirect, render
 import bcrypt
-from main.models import User
+from .models import User
 
 
 def logout(request):
