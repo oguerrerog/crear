@@ -1,6 +1,6 @@
 # Generador de Proyectos Django
 
-> Autor: Matias Bensan Fecha: 2021-06-26
+> Autor: Matias Bensan Fecha: 2021-06-26, Actualizado por Francisco Boisier y Oscar Guerrero.
 
 
 - Active el ambiente virtual donde tenga Django 3.2+
