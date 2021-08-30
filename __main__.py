@@ -4,6 +4,12 @@ import sys
 import os
 import fileinput
 
+pythonName = "python"
+pipName = "pip"
+
+if sys.platform == "darwin":
+	pythonName = "python3"
+	pipName = "pip3"
 
 #####
 version = '2.0'
@@ -43,7 +49,7 @@ def create_app(project, app):
 	# Genera Aplicacion
 	string = '... GENERANDO APLICACION DE NOMBRE "' + app + '" AL PROYECTO "' + project + '"';		os.system('echo ' + string)
 	os.chdir(project)
-	os.system(f'python manage.py startapp {app}')
+	os.system(f'{pythonName} manage.py startapp {app}')
 	
 	# Implementa Configuraciones
 	string = '... IMPLEMENTANDO CONFIGURACIONES LOCALES AL PROYECTO »» "' + project + '"';			os.system('echo ' + string)
@@ -74,7 +80,7 @@ def create_app(project, app):
 	string = '..';																					os.system('echo ' + string)	
 	string = '... INSTALANDO DEPENDENCIAS EN EL AMBIENTE AL PROYECTO  »»  "' + project + '"';		os.system('echo ' + string)
 	string = "###############################################################################";		os.system('echo ' + string)
-	os.system(f'pip install bcrypt --quiet')
+	os.system(f'{pipName} install bcrypt --quiet')
 	string = "###############################################################################";		os.system('echo ' + string)
 
 
@@ -83,7 +89,7 @@ def create_app(project, app):
 	string = '..';																					os.system('echo ' + string)	
 	string = '... EJECUTANDO MAKEMIGRATIONS AL PROYECTO »» "' + project + '"';						os.system('echo ' + string)
 	string = "###############################################################################";		os.system('echo ' + string)
-	os.system(f'python manage.py makemigrations')
+	os.system(f'{pythonName} manage.py makemigrations')
 	string = "###############################################################################";		os.system('echo ' + string)
 
 	# Ejecuta Migrate
@@ -91,7 +97,7 @@ def create_app(project, app):
 	string = '..';																					os.system('echo ' + string)
 	string = '... EJECUTANDO MIGRATE AL PROYECTO »» "' + project + '"' ;							os.system('echo ' + string)
 	string = "###############################################################################";		os.system('echo ' + string)
-	os.system(f'python manage.py migrate')
+	os.system(f'{pythonName} manage.py migrate')
 	string = "###############################################################################";		os.system('echo ' + string)
 	
 	# fin
