@@ -5,8 +5,8 @@ from .models import User
 
 
 def logout(request):
-    if 'user' in request.session:
-        del request.session['user']
+    if 'usuario' in request.session:
+        del request.session['usuario']
     
     return redirect("/login")
     
@@ -27,7 +27,7 @@ def login(request):
                     "role": log_user.role
                 }
 
-                request.session['user'] = user
+                request.session['usuario'] = user
                 messages.success(request, "Logueado correctamente.")
                 return redirect("/")
             else:
@@ -71,11 +71,14 @@ def registro(request):
             messages.success(request, "El usuario fue agregado con exito.")
             
 
-            request.session['usuario'] = {
+            user = {
                 "id" : usuario_nuevo.id,
-                "name": f"{usuario_nuevo.name}",
-                "email": usuario_nuevo.email
+                "name": f"{usuario_nuevo}",
+                "email": usuario_nuevo.email,
+                "role": usuario_nuevo.role
             }
+
+            request.session['usuario'] = user
             return redirect("/")
 
         return redirect("/registro")

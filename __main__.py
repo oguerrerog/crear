@@ -65,6 +65,7 @@ def create_app(project, app):
 	os.system(f'cp ../crear/decorators.py {app}/decorators.py')
 	os.system(f'cp ../crear/models.py {app}/models.py')
 	os.system(f'cp ../crear/urls.py {app}/urls.py')
+	os.system(f'cp ../crear/admin.py {app}/admin.py')
 	os.system(f'cp ../crear/gitignore .gitignore')
 
 
