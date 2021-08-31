@@ -84,21 +84,21 @@ def create_app(project, app):
 	string = "###############################################################################";		os.system('echo ' + string)
 
 
-	# Ejecuta Makemigrations
-	string = '.';																					os.system('echo ' + string)
-	string = '..';																					os.system('echo ' + string)	
-	string = '... EJECUTANDO MAKEMIGRATIONS AL PROYECTO »» "' + project + '"';						os.system('echo ' + string)
-	string = "###############################################################################";		os.system('echo ' + string)
-	os.system(f'{pythonName} manage.py makemigrations')
-	string = "###############################################################################";		os.system('echo ' + string)
+	# # Ejecuta Makemigrations
+	# string = '.';																					os.system('echo ' + string)
+	# string = '..';																					os.system('echo ' + string)	
+	# string = '... EJECUTANDO MAKEMIGRATIONS AL PROYECTO »» "' + project + '"';						os.system('echo ' + string)
+	# string = "###############################################################################";		os.system('echo ' + string)
+	# os.system(f'{pythonName} manage.py makemigrations')
+	# string = "###############################################################################";		os.system('echo ' + string)
 
-	# Ejecuta Migrate
-	string = '.';																					os.system('echo ' + string)
-	string = '..';																					os.system('echo ' + string)
-	string = '... EJECUTANDO MIGRATE AL PROYECTO »» "' + project + '"' ;							os.system('echo ' + string)
-	string = "###############################################################################";		os.system('echo ' + string)
-	os.system(f'{pythonName} manage.py migrate')
-	string = "###############################################################################";		os.system('echo ' + string)
+	# # Ejecuta Migrate
+	# string = '.';																					os.system('echo ' + string)
+	# string = '..';																					os.system('echo ' + string)
+	# string = '... EJECUTANDO MIGRATE AL PROYECTO »» "' + project + '"' ;							os.system('echo ' + string)
+	# string = "###############################################################################";		os.system('echo ' + string)
+	# os.system(f'{pythonName} manage.py migrate')
+	# string = "###############################################################################";		os.system('echo ' + string)
 	
 	# fin
 	string = '.';																					os.system('echo ' + string)
