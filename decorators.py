@@ -3,11 +3,11 @@ from django.contrib import messages
 
 def login_required(function):
 
-    def wrapper(request, *args):
+    def wrapper(request, *args,**kargs):
         if 'usuario' not in request.session:
             messages.error(request, "Error, tu no estás logeado")
             return redirect('/login')
-        resp = function(request, *args)
+        resp = function(request, *args,**kargs)
         return resp
     
     return wrapper
@@ -16,7 +16,7 @@ def login_required(function):
 
 def admin_requerido(function):
 
-    def wrapper(request, *args):
+    def wrapper(request, *args,**kargs):
         #CODIDO DE MI PROPIO DECORADOR
         if 'usuario' in request.session:
             if request.session['usuario']['role'] != 'admin':
@@ -26,7 +26,7 @@ def admin_requerido(function):
             messages.error(request, "Error, tu no estás logeado")
             return redirect('/login')
         
-        resp = function(request, *args)
+        resp = function(request, *args,**kargs)
         return resp
 
     return wrapper   
