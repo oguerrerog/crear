@@ -10,16 +10,16 @@ class UserManager(models.Manager):
         errors = {}
 
         if len(postData['name']) < 2:
-            errors['firstname_len'] = "nombre debe tener al menos 2 caracteres de largo";
+            errors['name_len'] = "nombre debe tener al menos 2 caracteres de largo" # Changed key, removed semicolon
 
         if not EMAIL_REGEX.match(postData['email']):
             errors['email'] = "correo invalido"
 
         if not SOLO_LETRAS.match(postData['name']):
-            errors['solo_letras'] = "solo letras en nombreporfavor"
+            errors['solo_letras'] = "solo letras en nombre por favor" # Corrected typo
 
-        if len(postData['password']) < 4:
-            errors['password'] = "contraseña debe tener al menos 8 caracteres";
+        if len(postData['password']) < 8: # Changed from 4 to 8
+            errors['password'] = "contraseña debe tener al menos 8 caracteres" # Removed semicolon
 
         if postData['password'] != postData['password_confirm'] :
             errors['password_confirm'] = "contraseña y confirmar contraseña no son iguales. "

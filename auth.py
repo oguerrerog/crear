@@ -70,11 +70,12 @@ def registro(request):
 
             messages.success(request, "El usuario fue agregado con exito.")
             
-
-            request.session['usuario'] = {
+            # Standardize session key to 'user' and include 'role'
+            request.session['user'] = {
                 "id" : usuario_nuevo.id,
                 "name": f"{usuario_nuevo.name}",
-                "email": usuario_nuevo.email
+                "email": usuario_nuevo.email,
+                "role": usuario_nuevo.role
             }
             return redirect("/")
 
